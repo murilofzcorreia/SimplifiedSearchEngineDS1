@@ -59,24 +59,17 @@ void criarPilha(Pilha *pilha)
     pilha->nlem = 0;
 }
 
-void addElementoPilha (Pilha *pilha, elemPilha *elem)
+void addElementoPilha (Pilha *pilha, tpconteudo elemento)
 {
-    if (pilha->topo == NULL)
-    {
-        pilha->topo = elem;
-    }
-    else
-    {
-        pilha->topo->prox = elem;
-        pilha->topo = elem;   
-    }
-}
+    elem = (elemPilha*)malloc(sizeof(elemPilha));
 
-elemPilha removeElementoPilha (Pilha *pilha, elemPilha *elemRemover)
-{
     while (pilha->topo != NULL)
     {
-        if (  )
+        if (elem->conteudo = elemRemover->conteudo)
+        {
+            pilha->topo = pilha->topo->baixo;
+            free(elemRemover);
+        }
     }
 }
 
