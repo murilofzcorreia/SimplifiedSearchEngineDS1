@@ -37,7 +37,7 @@ typedef struct
     int col;
     struct elemVetEsparso* direita;
     struct elemVetEsparso* esquerda;
-    int conteudo;  // Added content field
+    char palavra[];  
 } elemVetEsparso;
 
 
