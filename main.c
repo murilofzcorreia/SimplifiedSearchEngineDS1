@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX_TAMFILA 100
-
 
 // estruturando as estruturas ( kkkkkkkkk )
 
@@ -11,8 +9,8 @@
 
 typedef struct
 {
-    struct elemPilha *baixo;
-    // conteudo ( transações )
+    struct elemPilha *prox;
+    int conteudo;
 }elemPilha;
 
 typedef struct
@@ -23,15 +21,6 @@ typedef struct
 
 
 
-/**
-*   Fila
-*/
-typedef struct
-{
-    int vetFila[MAX_TAMFILA];
-    int inicio;
-    int nlem;
-} Fila;
 
 /**
 *   Vetor Esparso
@@ -47,8 +36,8 @@ typedef struct
 {
     int col;
     struct elemVetEsparso* direita;
-    struct elemVeTEsparso* esquerda;
-    // conteudo
+    struct elemVetEsparso* esquerda;
+    int conteudo;  // Added content field
 } elemVetEsparso;
 
 
@@ -59,24 +48,64 @@ void criarPilha(Pilha *pilha)
     pilha->nlem = 0;
 }
 
-void addElementoPilha (Pilha *pilha, tpconteudo elemento)
+bool pilhaVazia(Pilha *pilha)
 {
-    elem = (elemPilha*)malloc(sizeof(elemPilha));
+    return pilha->nlem == 0;
+}
+
+void addElementoPilha (Pilha *pilha, int elemento)
+{
+    elemPilha *novoElem = (elemPilha*)malloc(sizeof(elemPilha));
+    if (novoElem == NULL)
+    {
+        printf("Erro ao alocar memória para o elemento da pilha.\n");
+        return;
+    }
+    novoElem->conteudo = elemento;
+    novoElem->prox = pilha->topo;
+    pilha->topo = novoElem;
+    pilha->nlem++;
+}
+
+int removerElementoPilha(Pilha *pilha, int elemento)
+{
+    if (pilhaVazia(pilha))
+    {
+        printf("Pilha vazia! Não é possível remover elementos.\n");
+        return -1;
+    }
 
     while (pilha->topo != NULL)
     {
-        if (elem->conteudo = elemRemover->conteudo)
-        {
-            pilha->topo = pilha->topo->baixo;
-            free(elemRemover);
-        }
+        if (pilha)
     }
-}
 
+}
 
 
 int main(void)
 {
-    printf("teste");
-}
+    FILE *file;
 
+    file = fopen("dados.txt", "r");
+
+    if (file == NULL)
+    {
+        printf("Erro ao abrir o arquivo.\n");
+    }
+
+
+
+
+
+    Pilha minhaPilha;
+    criarPilha(&minhaPilha);
+
+    addElementoPilha(&minhaPilha, 10);
+    addElementoPilha(&minhaPilha, 20);
+    addElementoPilha(&minhaPilha, 30);
+
+    printf("Elementos removidos: %d, %d, %d\n", removerElementoPilha(&minhaPilha), removerElementoPilha(&minhaPilha), removerElementoPilha(&minhaPilha));
+
+    return 0;
+}
