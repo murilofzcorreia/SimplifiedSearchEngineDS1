@@ -14,10 +14,9 @@ typedef struct
     char vetFila[MAX_TAMFILA][MAX_TAM_NOME_ARQ]; // vetor de string com { "arq1.txt, "arq2.txt ... } FIFO
     int inicio; // index do primeiro elemento da fila ( vetor )
     int nlem; // número de elementos na fila
-
 } Fila;
 
-void addArquivoFila (Fila *fila, char nomeArq[MAX_TAM_NOME_ARQ])
+void addArquivoFila(Fila* fila, char nomeArq[MAX_TAM_NOME_ARQ])
 {
     if (fila->nelem >= MAX_TAMFILA)
     {
@@ -30,7 +29,7 @@ void addArquivoFila (Fila *fila, char nomeArq[MAX_TAM_NOME_ARQ])
     }
 }
 
-void removeArquivoFila (Fila *fila)
+void removeArquivoFila(Fila* fila)
 {
     if (fila->elem == 0)
     {
@@ -39,6 +38,5 @@ void removeArquivoFila (Fila *fila)
     else
     {
         // tem que fzr remanejamento
-        
     }
 }

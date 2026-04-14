@@ -1,6 +1,5 @@
 Objetivo Geral
 
-
 Desenvolver um sistema capaz de:
 
 - Processar documentos textuais (ETL);
@@ -8,5 +7,5 @@ Desenvolver um sistema capaz de:
 - Permitir consultas por palavras-chave;
 - Retornar documentos ordenados por relevância.
 
-
-O projeto simula o funcionamento básico de um motor de busca, utilizando estruturas de dados fundamentais da disciplina de Estruturas de Dados I
+O projeto simula o funcionamento básico de um motor de busca, utilizando estruturas de dados fundamentais da disciplina
+de Estruturas de Dados I
