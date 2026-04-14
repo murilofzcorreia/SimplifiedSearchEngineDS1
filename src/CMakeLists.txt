@@ -16,4 +16,7 @@ add_executable(SimplifiedSearchEngineDS1 main.c
         abb.h
         dicionario.c
         dicionario.h
-        testesMurilo.c)
+        testesMurilo.c
+        arquivosTxt.c
+        arquivosTxt.h
+        arquivosTxt.h)
